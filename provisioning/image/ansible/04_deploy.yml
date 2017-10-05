@@ -19,10 +19,6 @@
       shell: PATH=/home/isucon/.local/node/bin:$PATH npm install
       args:
         chdir: /home/isucon/webapp/js
-    - name: node
-      shell: PATH=/home/isucon/.local/node/bin:$PATH npm install
-      args:
-        chdir: /home/isucon/webapp/js/node_modules/runkoa
     - name: python
       shell: /bin/bash /home/isucon/webapp/python/setup.sh
       args:
