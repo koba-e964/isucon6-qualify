@@ -15,10 +15,6 @@
       shell: PATH=/home/isucon/.local/perl/bin:$PATH carton install --deployment
       args:
         chdir: /home/isucon/webapp/perl
-    - name: node
-      shell: PATH=/home/isucon/.local/node/bin:$PATH npm install
-      args:
-        chdir: /home/isucon/webapp/js
     - name: python
       shell: /bin/bash /home/isucon/webapp/python/setup.sh
       args:
@@ -61,14 +57,6 @@
       copy: src=../files/isuda.perl.service dest=/etc/systemd/system/isuda.perl.service owner=root mode=644
     - name: perl isutar (systemd)
       copy: src=../files/isutar.perl.service dest=/etc/systemd/system/isutar.perl.service owner=root mode=644
-    - name: ruby isuda (systemd)
-      copy: src=../files/isuda.ruby.service dest=/etc/systemd/system/isuda.ruby.service owner=root mode=644
-    - name: ruby isutar (systemd)
-      copy: src=../files/isutar.ruby.service dest=/etc/systemd/system/isutar.ruby.service owner=root mode=644
-    - name: js isuda (systemd)
-      copy: src=../files/isuda.js.service dest=/etc/systemd/system/isuda.js.service owner=root mode=644
-    - name: js isutar (systemd)
-      copy: src=../files/isutar.js.service dest=/etc/systemd/system/isutar.js.service owner=root mode=644
     - name: python isuda (systemd)
       copy: src=../files/isuda.python.service dest=/etc/systemd/system/isuda.python.service owner=root mode=644
     - name: python isutar (systemd)
@@ -81,10 +69,6 @@
       copy: src=../files/isuda.scala.service dest=/etc/systemd/system/isuda.scala.service owner=root mode=644
     - name: scala isutar (systemd)
       copy: src=../files/isutar.scala.service dest=/etc/systemd/system/isutar.scala.service owner=root mode=644
-    - name: php isuda (systemd)
-      copy: src=../files/isuda.php.service dest=/etc/systemd/system/isuda.php.service owner=root mode=644
-    - name: php isutar (systemd)
-      copy: src=../files/isutar.php.service dest=/etc/systemd/system/isutar.php.service owner=root mode=644
     - name: default application selection (isupam)
       service: name=isupam state=running enabled=true
     - name: default application selection (isuda)
